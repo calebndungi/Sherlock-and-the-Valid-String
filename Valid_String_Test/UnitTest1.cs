@@ -15,14 +15,51 @@ namespace Valid_String_Test
             string sherlock3 = "abcba";
             string sherlock4 = "abcba";
 
+         
+
+
+
 
             string expected = "YES";
 
+           
+
             string result = Valid_String.isValid(sherlock);
 
-            Assert.AreEqual(expected, result);
+            string result1 = Valid_String.isValid(sherlock1);
+
+            string result2 = Valid_String.isValid(sherlock2);
+
+            string result3 = Valid_String.isValid(sherlock3);
+
+            string result4 = Valid_String.isValid(sherlock4);
+
+    
+
+
+
+            Assert.AreEqual(expected, result, result1, result2, result3,result4);
+
+           
 
             
+        }
+
+        [TestMethod]
+        public void isValidFalse()
+        {
+            string expected1 = "NO";
+
+            string sherlock5 = "abc";
+
+            string result5 = Valid_String.isValid(sherlock5);
+
+
+            Assert.AreNotEqual(expected1, result5);
+
+
+
+
         }
 
     }

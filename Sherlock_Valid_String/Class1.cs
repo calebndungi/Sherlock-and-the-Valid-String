@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Sherlock_Valid_String
 {
@@ -7,7 +8,7 @@ namespace Sherlock_Valid_String
     {
         public static string isValid(string s)
         {
-            bool IsValid = false;
+            bool isValid = false;
         if(!string.IsNullOrEmpty(s))
         {
             //convert string to char array
@@ -45,10 +46,10 @@ namespace Sherlock_Valid_String
                 }
             }
         }
-        if(isValid)
-            return "YES";
-        else
-            return "NO"
+            if (isValid)
+                return "YES";
+            else
+                return "NO";
 
         }
 
