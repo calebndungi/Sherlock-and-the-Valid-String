@@ -7,44 +7,48 @@ namespace Sherlock_Valid_String
     {
         public static string isValid(string s)
         {
-            char[] str = s.ToCharArray();
+            bool IsValid = false;
+        if(!string.IsNullOrEmpty(s))
+        {
+            //convert string to char array
+            char[] InputChars = s.ToCharArray();
 
+            //create a dictionary to hold char and count of occurence
             Dictionary<char, int> dict = new Dictionary<char, int>();
 
-            foreach (char c in str)
+            //Add characters to dict and if char exist incerement occurence
+            foreach(char c in InputChars)
             {
-                if (!dict.ContainsKey(c))
-                {
-
-                    dict.Add(c, 1);
-
-                }
-                else if (dict[c] < 2)
-                {
-
-                    //return "YES";
+                if(dict.ContainsKey(c))
                     dict[c]++;
-
-                }
-
+                else
+                    dict.Add(c,1);
             }
-            string result = String.Empty;
 
+            int counter = 0;
+            isValid = true;
 
-            foreach (int c in dict.Values)
+            KeyValuePair<char, int> firstItem = dict.First();
+
+            //traverse chars in dictionary
+            foreach(KeyValuePair<char, int> items in dict)
             {
-
-                if (c > 2)
+                //if count of occurence is not equal to the other occurence values
+                if(firstItem.Value != items.Value)
                 {
-
-                    result = "NO";
-                    break;
-
+                    if(counter >= 1 )
+                    {
+                         isValid = false;
+                        break;
+                    }
+                   counter++;
                 }
-                result = "YES";
             }
-
-            return result;
+        }
+        if(isValid)
+            return "YES";
+        else
+            return "NO"
 
         }
 
